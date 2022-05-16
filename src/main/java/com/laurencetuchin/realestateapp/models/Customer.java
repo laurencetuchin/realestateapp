@@ -18,6 +18,9 @@ public class Customer {
     @Column(name = "has_role", nullable = false)
     private String has_role = "customer";
 
+    public Customer() {
+    }
+
     public Customer(Long id, String name, String has_role) {
         this.id = id;
         this.name = name;
