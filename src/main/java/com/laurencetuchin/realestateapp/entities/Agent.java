@@ -14,6 +14,10 @@ public class Agent {
     @Autowired
     private User user;
 
+    @Autowired
+    @OneToMany(orphanRemoval = true, mappedBy = "agent")
+    private List<Property> property;
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -25,8 +29,7 @@ public class Agent {
     @Column(name = "AGENT_PHONENUMBER",nullable = false)
     private String phoneNumber;
     @Column(name = "AGENT_PROPERTYLIST")
-    @Autowired
-    private List<Property> property;
+
 
     public User getUser() {
         return user;

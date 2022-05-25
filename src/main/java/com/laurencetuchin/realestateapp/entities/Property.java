@@ -5,6 +5,11 @@ import javax.persistence.*;
 @Entity
 @Table(name = "PROPERTY")
 public class Property {
+
+    @ManyToOne
+    @JoinColumn(name = "agent_id")
+    private Agent agent;
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE )
     private Integer id;
@@ -23,6 +28,13 @@ public class Property {
     @Column(name = "PROPERTY_AGENTPHONENUMBER", nullable = false)
     private String agentPhoneNumber;
 
+    public Agent getAgent() {
+        return agent;
+    }
+
+    public void setAgent(Agent agent) {
+        this.agent = agent;
+    }
 
 
     public Property() {
