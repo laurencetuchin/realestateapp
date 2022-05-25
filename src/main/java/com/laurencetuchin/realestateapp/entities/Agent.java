@@ -41,9 +41,9 @@ public class Agent {
 
     public Agent(Integer id, String firstName, String lastName, String phoneNumber, List<Property> property) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
+        this.firstName = user.getLastName();
+        this.lastName = user.getLastName();
+        this.phoneNumber = user.getPhoneNumber();
         this.property = property;
     }
 
