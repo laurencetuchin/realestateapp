@@ -1,15 +1,26 @@
 package com.laurencetuchin.realestateapp.entities;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "PROPERTY")
 public class Property {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE )
+    private Integer id;
+    @Column(name = "PROPERTY_ADDRESS", length = 255, nullable = false, unique = false)
     private String address;
+    @Column(name = "PROPERTY_PRICE", nullable = false)
     private Long price;
+    @Column(name = "PROPERTY_BEDROOMS", nullable = false)
     private Integer bedrooms;
+    @Column(name = "PROPERTY_BATHROOMS", nullable = false)
     private Integer bathrooms;
+    @Column(name = "PROPERTY_LANDSIZE", nullable = false)
     private Long landSize;
+    @Column(name = "PROPERTY_AGENTNAME",nullable = false)
     private String agentName;
+    @Column(name = "PROPERTY_AGENTPHONENUMBER", nullable = false)
     private String agentPhoneNumber;
 
 
