@@ -1,6 +1,7 @@
 package com.laurencetuchin.realestateapp.entities;
 
 import javax.persistence.*;
+import java.util.Collection;
 
 @Entity
 @Table(name = "USER")
@@ -16,6 +17,10 @@ public class User {
     private String lastName;
     @Column(name = "USER_PHONENUMBER", nullable = false)
     private String phoneNumber;
+
+    @ManyToMany
+    @JoinTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    private Collection<Role> roles;
 
 
     public User() {
