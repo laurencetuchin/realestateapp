@@ -1,9 +1,12 @@
 package com.laurencetuchin.realestateapp.entities;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "USER")
 public class User {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
     private String username;
     private String firstName;
