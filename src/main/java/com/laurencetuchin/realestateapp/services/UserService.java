@@ -5,6 +5,7 @@ import com.laurencetuchin.realestateapp.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.management.ServiceNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,6 +24,26 @@ public class UserService {
 
     public Optional<User> getUserById(Integer id) {
         return userRepository.findById(id);
+    }
+
+    public List<User> getUsers() {
+        return userRepository.findAll();
+    }
+
+    public User updateUser(User user) {
+        Optional<User> userToUpdate = userRepository.findById(user.getId());
+        if (userToUpdate.isPresent()) {
+            User updateUser = userToUpdate.get();
+            updateUser.setFirstName(updateUser.getFirstName());
+            updateUser.setLastName(updateUser.getLastName());
+            updateUser.setPhoneNumber(updateUser.getPhoneNumber());
+            updateUser.setUsername(updateUser.getUsername());
+            userRepository.save(updateUser);
+
+        }
+        else return new User();
+
+
     }
 
 
