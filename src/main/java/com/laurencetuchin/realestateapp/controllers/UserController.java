@@ -8,13 +8,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
+@RestController()
 public class UserController {
 
     @Autowired
     private UserService userService;
 
     @PostMapping("/adduser")
+    @ResponseBody
     public User addUser(@RequestBody User user) {
         return userService.createUser(user);
     }
