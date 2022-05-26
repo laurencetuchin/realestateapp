@@ -5,7 +5,6 @@ import com.laurencetuchin.realestateapp.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.management.ServiceNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,9 +40,16 @@ public class UserService {
             userRepository.save(updateUser);
 
         }
-        else return new User();
+        else {
+            return new User();
+        }
 
+        return user;
+    }
 
+    public String deleteUserById(Integer id) {
+        userRepository.deleteById(id);
+        return "User deleted";
     }
 
 
