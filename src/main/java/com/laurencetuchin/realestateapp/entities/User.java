@@ -3,8 +3,8 @@ package com.laurencetuchin.realestateapp.entities;
 import javax.persistence.*;
 import java.util.Collection;
 
-@Entity
-@Table(name = "USER")
+@Entity(name = "USER")
+//@Table(name = "USER")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
