@@ -33,4 +33,12 @@ public class UserController {
     public List<User> getAllUsers() {
         return userService.getUsers();
     }
+
+    @PutMapping("/updateuser")
+    public User updateUser(@RequestBody User user) {
+        return userService.updateUser(user);
+    }
+
+
+
 }
