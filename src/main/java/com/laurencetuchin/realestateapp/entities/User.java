@@ -1,21 +1,23 @@
 package com.laurencetuchin.realestateapp.entities;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 import java.util.Collection;
 
-@Entity(name = "USER")
-//@Table(name = "USER")
+@Entity
+@Table(name = "USER")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
-    @Column(name = "USER_USERNAME", nullable = false, unique = true)
+    @Column(name = "USERNAME", nullable = false, unique = true)
     private String username;
-    @Column(name = "USER_FIRSTNAME", nullable = false)
+    @Column(name = "FIRSTNAME", nullable = false)
     private String firstName;
-    @Column(name = "USER_LASTNAME", nullable = false)
+    @Column(name = "LASTNAME", nullable = false)
     private String lastName;
-    @Column(name = "USER_PHONENUMBER", nullable = false)
+    @Column(name = "PHONENUMBER", nullable = false)
     private String phoneNumber;
 
     @ManyToMany
@@ -26,6 +28,7 @@ public class User {
     public User() {
     }
 
+    @Autowired
     public User(String username, String firstName, String lastName, String phoneNumber) {
         this.username = username;
         this.firstName = firstName;

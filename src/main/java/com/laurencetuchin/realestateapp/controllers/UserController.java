@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RestController()
+@RestController
+@RequestMapping("/api")
 public class UserController {
 
     @Autowired
@@ -30,12 +31,17 @@ public class UserController {
        return userService.getUserById(id);
     }
 
+    @RequestMapping("/hello")
+    public String hello() {
+        return "hello";
+    }
+
     @GetMapping("/users")
     public List<User> getAllUsers() {
         return userService.getUsers();
     }
 
-    @PutMapping("/updateuser")
+    @PutMapping(value = "/updateuser", consumes = {"application/xml","application/json"})
     public User updateUser(@RequestBody User user) {
         return userService.updateUser(user);
     }

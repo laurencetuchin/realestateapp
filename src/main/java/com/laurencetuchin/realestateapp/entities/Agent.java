@@ -39,6 +39,7 @@ public class Agent {
         this.user = user;
     }
 
+    @Autowired
     public Agent(Integer id, String firstName, String lastName, String phoneNumber, List<Property> property) {
         this.id = id;
         this.firstName = user.getLastName();
