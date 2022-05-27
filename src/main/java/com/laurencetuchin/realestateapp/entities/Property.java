@@ -1,5 +1,7 @@
 package com.laurencetuchin.realestateapp.entities;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import javax.persistence.*;
 
 @Entity
@@ -40,6 +42,7 @@ public class Property {
     public Property() {
     }
 
+    @Autowired
     public Property(String address, Long price, Integer bedrooms, Integer bathrooms, Long landSize, String agentName, String agentPhoneNumber) {
         this.address = address;
         this.price = price;
