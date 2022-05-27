@@ -3,6 +3,7 @@ package com.laurencetuchin.realestateapp.controllers;
 import com.laurencetuchin.realestateapp.entities.User;
 import com.laurencetuchin.realestateapp.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,11 +18,13 @@ public class UserController {
 
     @PostMapping("/adduser")
     @ResponseBody
+    @ResponseStatus(HttpStatus.CREATED)
     public User addUser(@RequestBody User user) {
         return userService.createUser(user);
     }
 
     @PostMapping("/adduserlist")
+    @ResponseStatus(HttpStatus.CREATED)
     public List<User> addUserList(@RequestBody List<User> user) {
         return userService.createUserList(user);
     }
