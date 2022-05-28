@@ -52,5 +52,9 @@ public class UserService {
         return "User deleted";
     }
 
+    public void deleteAllUsers() {
+        userRepository.deleteAll();
+    }
+
 
 }

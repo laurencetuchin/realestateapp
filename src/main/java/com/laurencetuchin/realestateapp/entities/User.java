@@ -28,8 +28,16 @@ public class User {
     public User() {
     }
 
-    @Autowired
     public User(String username, String firstName, String lastName, String phoneNumber) {
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+    }
+
+    @Autowired
+    public User(Integer id, String username, String firstName, String lastName, String phoneNumber) {
+        this.id = id;
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;

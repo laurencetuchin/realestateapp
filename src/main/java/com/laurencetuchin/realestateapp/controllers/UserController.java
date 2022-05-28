@@ -17,7 +17,6 @@ public class UserController {
     private UserService userService;
 
     @PostMapping("/adduser")
-    @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
     public User addUser(@RequestBody User user) {
         return userService.createUser(user);
@@ -52,6 +51,12 @@ public class UserController {
     @DeleteMapping("/user/{id}")
     public String deleteUser(@PathVariable Integer id) {
         return userService.deleteUserById(id);
+    }
+
+    @DeleteMapping("/delete/users")
+    public String deleteAllUsers() {
+        userService.deleteAllUsers();
+        return "All Users deleted";
     }
 
 
