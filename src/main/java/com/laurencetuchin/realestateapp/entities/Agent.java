@@ -23,7 +23,7 @@ public class Agent {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
     @Column(name = "AGENT_FIRSTNAME", nullable = false)
-    private String firstName;
+    private String firstName = user.getFirstName();
     @Column(name = "AGENT_LASTNAME",nullable = false)
     private String lastName;
     @Column(name = "AGENT_PHONENUMBER",nullable = false)

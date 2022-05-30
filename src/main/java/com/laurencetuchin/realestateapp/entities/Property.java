@@ -15,19 +15,19 @@ public class Property {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE )
     private Integer id;
-    @Column(name = "PROPERTY_ADDRESS", length = 255, nullable = false, unique = false)
+    @Column(name = "ADDRESS", length = 255, nullable = false, unique = false)
     private String address;
-    @Column(name = "PROPERTY_PRICE", nullable = false)
+    @Column(name = "PRICE", nullable = false)
     private Long price;
-    @Column(name = "PROPERTY_BEDROOMS", nullable = false)
+    @Column(name = "BEDROOMS", nullable = false)
     private Integer bedrooms;
-    @Column(name = "PROPERTY_BATHROOMS", nullable = false)
+    @Column(name = "BATHROOMS", nullable = false)
     private Integer bathrooms;
-    @Column(name = "PROPERTY_LANDSIZE", nullable = false)
+    @Column(name = "LANDSIZE", nullable = false)
     private Long landSize;
-    @Column(name = "PROPERTY_AGENTNAME",nullable = false)
+    @Column(name = "AGENTNAME")
     private String agentName;
-    @Column(name = "PROPERTY_AGENTPHONENUMBER", nullable = false)
+    @Column(name = "AGENTPHONENUMBER")
     private String agentPhoneNumber;
 
     public Agent getAgent() {
@@ -42,7 +42,6 @@ public class Property {
     public Property() {
     }
 
-    @Autowired
     public Property(String address, Long price, Integer bedrooms, Integer bathrooms, Long landSize, String agentName, String agentPhoneNumber) {
         this.address = address;
         this.price = price;
@@ -51,6 +50,16 @@ public class Property {
         this.landSize = landSize;
         this.agentName = agentName;
         this.agentPhoneNumber = agentPhoneNumber;
+    }
+
+    @Autowired
+    public Property(Integer id, String address, Long price, Integer bedrooms, Integer bathrooms, Long landSize) {
+        this.id = id;
+        this.address = address;
+        this.price = price;
+        this.bedrooms = bedrooms;
+        this.bathrooms = bathrooms;
+        this.landSize = landSize;
     }
 
     public String getAddress() {
