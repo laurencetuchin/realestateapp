@@ -22,4 +22,10 @@ public class PropertyService {
         return propertyRepository.findAll();
     }
 
+    public Property createProperty(Property property) {
+        return propertyRepository.save(property);
+    }
+
+
+
 }

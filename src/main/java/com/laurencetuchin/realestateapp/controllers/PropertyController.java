@@ -3,6 +3,7 @@ package com.laurencetuchin.realestateapp.controllers;
 import com.laurencetuchin.realestateapp.entities.Property;
 import com.laurencetuchin.realestateapp.services.PropertyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,6 +29,12 @@ public class PropertyController {
     @PutMapping("/property/{id}/update")
     public String updateProperty(Property property) {
         return "blank";
+    }
+
+    @PostMapping("/property/new")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Property createProperty(@RequestBody Property property) {
+        return propertyService.c
     }
 
 }
