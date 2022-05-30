@@ -34,7 +34,7 @@ public class PropertyController {
     @PostMapping("/property/new")
     @ResponseStatus(HttpStatus.CREATED)
     public Property createProperty(@RequestBody Property property) {
-        return propertyService.c
+        return propertyService.createProperty(property);
     }
 
 }
