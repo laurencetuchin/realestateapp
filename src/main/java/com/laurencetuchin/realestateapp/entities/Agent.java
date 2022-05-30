@@ -23,12 +23,13 @@ public class Agent {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
     @Column(name = "FIRSTNAME", nullable = false)
-    private String firstName = user.getFirstName();
+    private String firstName;
     @Column(name = "LASTNAME",nullable = false)
     private String lastName;
     @Column(name = "PHONENUMBER",nullable = false)
     private String phoneNumber;
     @Column(name = "PROPERTYLIST")
+
 
 
     public User getUser() {

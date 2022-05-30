@@ -62,6 +62,14 @@ public class Property {
         this.landSize = landSize;
     }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     public String getAddress() {
         return address;
     }
