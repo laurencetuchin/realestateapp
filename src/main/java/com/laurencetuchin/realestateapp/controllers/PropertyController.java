@@ -37,4 +37,12 @@ public class PropertyController {
         return propertyService.createProperty(property);
     }
 
+    @PostMapping("/property/new/list")
+    @ResponseStatus(HttpStatus.CREATED)
+    public List<Property> createPropertyList(@RequestBody List<Property> properties) {
+        return propertyService.createPropertyList(properties);
+    }
+
+
+
 }

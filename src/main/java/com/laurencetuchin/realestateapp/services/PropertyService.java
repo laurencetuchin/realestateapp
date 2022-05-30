@@ -26,6 +26,9 @@ public class PropertyService {
         return propertyRepository.save(property);
     }
 
+    public List<Property> createPropertyList(List<Property> properties) {
+        return propertyRepository.saveAll(properties);
+    }
 
 
 }
