@@ -125,4 +125,6 @@ public class Property {
     public void setAgentPhoneNumber(String agentPhoneNumber) {
         this.agentPhoneNumber = agentPhoneNumber;
     }
+
+
 }

@@ -6,13 +6,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "AGENT")
-public class Agent {
-
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    @Autowired
-    private User user;
+public class Agent extends User {
 
     @Autowired
     @OneToMany(orphanRemoval = true, mappedBy = "agent")
@@ -22,32 +16,11 @@ public class Agent {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
-    @Column(name = "FIRSTNAME", nullable = false)
-    private String firstName;
-    @Column(name = "LASTNAME",nullable = false)
-    private String lastName;
-    @Column(name = "PHONENUMBER",nullable = false)
-    private String phoneNumber;
-    @Column(name = "PROPERTYLIST")
 
 
 
-    public User getUser() {
-        return user;
-    }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
 
-    @Autowired
-    public Agent(Integer id, String firstName, String lastName, String phoneNumber, List<Property> property) {
-        this.id = id;
-        this.firstName = user.getLastName();
-        this.lastName = user.getLastName();
-        this.phoneNumber = user.getPhoneNumber();
-        this.property = property;
-    }
 
     public Agent() {
     }
@@ -58,30 +31,6 @@ public class Agent {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
     }
 
     public List<Property> getProperty() {
